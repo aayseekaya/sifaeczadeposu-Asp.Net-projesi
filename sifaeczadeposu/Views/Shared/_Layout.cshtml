@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top arkaplan">
+       
+        <div class="container" >
+            <div class="resim">
+                <a href="#"><img class="resim" src="~/Content/img/indir.jpg" /></a>
+            </div>
+             <div><a href="/Admin/giris" class="btn btn-default giris " style="float:right" title="Yeni Slide" >E-ECZANE GİRİŞ</a></div>
+            <div><a href="/Admin/kaydol" class="btn btn-default giris " style="float:right" title="Yeni Slide">KAYDOL</a></div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle   width:40px;   height:35px;" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar "></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              <font color="#4A7FD4"><h1> <b>ŞİFA ECZA DEPOSU</b> </h1></font> 
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><button class="btn btn-default  "  type="submit">@Html.ActionLink("ANASAYFA", "Index", "Home")</button></li>
+                    <li><button class="btn btn-default " type="submit">@Html.ActionLink("İLAÇLAR", "ilaclar", "Home")</button></li>
+                    <li><button class="btn btn-default " type="submit">@Html.ActionLink("FUARLAR", "fuarlar", "Home")</button></li>
+                    <li><button class="btn btn-default  " type="submit">@Html.ActionLink("HAKKIMIZDA", "hakkimizda", "Home")</button></li>
+                    <li><button class="btn btn-default  " type="submit">@Html.ActionLink("İLETİŞİM", "iletisim", "Home")</button></li>
+                </ul>
+           
+            </div>
+        </div>
+   </div>
+    <div class="container body-content" style="margin-top:70px;">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="panel panel-default" style="background-color:black;">
+                 <ul class="nav navbar-nav">
+                     <li style="text-decoration-color:black">@Html.ActionLink("ANASAYFA", "Index", "Home")</li>
+                     <li>@Html.ActionLink("İLAÇLAR", "Index", "Home")</li>
+                     <li>@Html.ActionLink("FUARLAR", "Index", "Home")</li>
+                     <li>@Html.ActionLink("HAKKIMIZDA", "Index", "Home")</li>
+                     <li>@Html.ActionLink("İLETİŞİM", "Index", "Home")</li>
+
+                    </ul>
+            </div>
+        </footer>
+   
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

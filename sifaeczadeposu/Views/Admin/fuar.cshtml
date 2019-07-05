@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Fuar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model List<sifaeczadeposu.Models.fuar>
+
+ <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Fuar</h4>
+            <a href="/Admin/FuarEkle" class="btn btn-success btn-sm tooltips pull-right" title="Yeni Fuar" style="margin-top:-33px;">+FUAR EKLE</a>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-md-1">Fuar Adı</th>
+                        <th class="col-md-9">Açıklama</th>
+                        <th class="col-md-2">Tarih</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                           
+                            <td>@item.fuaradi</td>
+                            <td>@item.aciklama</td>
+                            <td>@String.Format("{0:d}", @item.tarih)</td>
+                            <td><a href='/Admin/FuarDüzenle?FuarID=@item.ID' class='btn btn-xs btn-info tooltips' title='Düzenle'>Düzenle</a></td>
+                            <td>@Html.ActionLink("Sil", "/FuarSil", new { FuarID = item.ID }, new { @class = "btn btn-xs btn-danger tooltips", onclick = "return confirm('Silmek İstediğinize Emin Misinizin ?');" })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+  </div>
+
+     
+

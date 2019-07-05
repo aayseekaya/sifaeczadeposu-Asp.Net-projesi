@@ -1,0 +1,89 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 25px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width:150px;
+}
+.btn-default {
+    
+      max-height: 150px;
+}
+.btn { 
+    padding-top: 10px;
+    padding-left: 75px;
+    padding-right: 75px;
+}
+.baslik {
+    text-decoration-color:white;
+ 
+}
+.giris {
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+  float:right;
+  margin:10px;
+}
+.resim {
+   
+    margin:5px;
+     float:right;
+     width:40px;
+     height:35px;
+}
+.arkaplan {
+    background-color:#242412;
+}
+.ortala{max-width:960px;margin:auto;margin-top:50px;}
+
+h2{margin:0;color:#fff;padding-top: 90px;font-size: 52px;font-family: "trebuchet ms", sans-serif;    }
+.item{background:#999;text-align: center;height:300px !important;}
+
+
+.hero-spacer {
+    margin-top: 50px;
+}
+
+.hero-feature {
+    margin-bottom: 30px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+#border {
+  margin-top: 20px;
+ padding: 20px;
+ border-width:.2em;
+border-style:solid;
+border-color:black;
+}
+.jumbotron { 
+    height:auto;
+    width:auto;
+}
+.img { width:400px;
+     height:88.5px;
+}
+.ortala {
+     margin:auto;
+}

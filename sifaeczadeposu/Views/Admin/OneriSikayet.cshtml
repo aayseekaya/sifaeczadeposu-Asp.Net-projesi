@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Hakkimizda";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model List<sifaeczadeposu.Models.onerisikayet >
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Öneri ve Şikayetler</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                               <th class="col-md-9">Ad Soyad</th>
+                                <th class="col-md-2">Mesaj</th>
+                                <th ></th>
+                             </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                   <td>@item.adsoyad</td>
+                                   <td>@item.mesaj</td>
+                                    <td>@Html.ActionLink("Sil", "/OnerSikayetSil", new {OneriSikayetID = item.ID }, new { @class = "btn btn-xs btn-danger tooltips", onclick = "return confirm('Silmek İstediğinize Emin Misinizin ?');" })</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

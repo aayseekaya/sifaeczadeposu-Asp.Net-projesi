@@ -1,0 +1,60 @@
+﻿@model IEnumerable<sifaeczadeposu.Models.ilaclar>
+@{
+    ViewBag.Title = "ilaclar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr>
+<!-- Title -->
+<div class="row">
+    <div class="col-lg-12" >
+        
+        <div class="dropdown" >
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                SIRALAMA TÜRÜ
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Aksiyon</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Başka bir aksiyon</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Başka şeyler</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ayrılmış kısayol</a></li>
+            </ul>
+            <button class="btn btn-default  " type="submit">@Html.ActionLink("+ İLAÇ İSTEĞİNDE BULUN", "Index", "Home")</button>
+        </div>
+        <h3></h3>
+    </div>
+</div>
+<!-- /.row -->
+<!-- Page Features -->
+<div class="row text-center">
+@foreach (var item in Model)
+{
+    <div class="col-md-3 col-sm-6 hero-feature">
+        <div class="thumbnail">
+            @if (item.resim== null)
+            {
+                <img src="~/Content/img/resimyok.png" />
+            }
+            else
+            {
+                <img style="height:292px;" src="data:image/.png;base64,@System.Convert.ToBase64String(item.resim)" >
+            }
+            <div class="caption">
+                <h3>@Html.DisplayFor(modelItem => item.ilacadi)</h3>
+                <p>İlaç Açıklaması:@Html.DisplayFor(modelItem => item.aciklama)</p>
+                <p>İlaç fiyatı:@Html.DisplayFor(modelItem => item.fiyat)</p>
+               <p>İndirim oranı:@Html.DisplayFor(modelItem => item.indirimorani)</p>
+                <p>
+                    <a href="#" class="btn btn-primary">SATIN AL</a>
+                </p>
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+<!-- /.row -->
+<hr>
+
+

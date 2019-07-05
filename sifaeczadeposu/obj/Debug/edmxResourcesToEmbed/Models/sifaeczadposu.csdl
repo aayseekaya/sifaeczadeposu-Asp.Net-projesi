@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sifaeczadposuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="fuar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fuaradi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tarih" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="fuarkayit" Relationship="Self.FK_fuarkayit_fuar" FromRole="fuar" ToRole="fuarkayit" />
+  </EntityType>
+  <EntityType Name="fuarkayit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FKuyeID" Type="Int32" Nullable="false" />
+    <Property Name="FKfuarID" Type="Int32" Nullable="false" />
+    <Property Name="k_ad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="sifre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="fuar" Relationship="Self.FK_fuarkayit_fuar" FromRole="fuarkayit" ToRole="fuar" />
+    <NavigationProperty Name="uye" Relationship="sifaeczadposuModel.FK_fuarkayit_fuar1" FromRole="fuarkayit" ToRole="uye" />
+  </EntityType>
+  <EntityType Name="ilaclar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ilacadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fiyat" Type="Int32" Nullable="false" />
+    <Property Name="resim" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="indirimorani" Type="Int32" />
+    <NavigationProperty Name="satinalma" Relationship="Self.FK_satinalma_uye1" FromRole="ilaclar" ToRole="satinalma" />
+  </EntityType>
+  <EntityType Name="satinalma">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FKilacID" Type="Int32" Nullable="false" />
+    <Property Name="FKuyeID" Type="Int32" Nullable="false" />
+    <Property Name="resim" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="k_ad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="sifre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="fiyat" Type="Int32" Nullable="false" />
+    <Property Name="indirimorani" Type="Int32" />
+    <NavigationProperty Name="ilaclar" Relationship="Self.FK_satinalma_uye1" FromRole="satinalma" ToRole="ilaclar" />
+    <NavigationProperty Name="uye" Relationship="sifaeczadposuModel.FK_satinalma_uye11" FromRole="satinalma" ToRole="uye" />
+  </EntityType>
+  <EntityType Name="uye">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="soyad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="tel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="k_ad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="sifre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="cins" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="fuarkayit" Relationship="sifaeczadposuModel.FK_fuarkayit_fuar1" FromRole="uye" ToRole="fuarkayit" />
+    <NavigationProperty Name="satinalma" Relationship="sifaeczadposuModel.FK_satinalma_uye11" FromRole="uye" ToRole="satinalma" />
+  </EntityType>
+  <Association Name="FK_fuarkayit_fuar">
+    <End Role="fuar" Type="Self.fuar" Multiplicity="1" />
+    <End Role="fuarkayit" Type="Self.fuarkayit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fuar">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="fuarkayit">
+        <PropertyRef Name="FKfuarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_satinalma_uye1">
+    <End Role="ilaclar" Type="Self.ilaclar" Multiplicity="1" />
+    <End Role="satinalma" Type="Self.satinalma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ilaclar">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="satinalma">
+        <PropertyRef Name="FKilacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sifaeczadposuEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="fuar" EntityType="Self.fuar" />
+    <EntitySet Name="fuarkayit" EntityType="Self.fuarkayit" />
+    <EntitySet Name="ilaclar" EntityType="Self.ilaclar" />
+    <EntitySet Name="satinalma" EntityType="Self.satinalma" />
+    <EntitySet Name="uye" EntityType="Self.uye" />
+    <AssociationSet Name="FK_fuarkayit_fuar" Association="Self.FK_fuarkayit_fuar">
+      <End Role="fuar" EntitySet="fuar" />
+      <End Role="fuarkayit" EntitySet="fuarkayit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_satinalma_uye1" Association="Self.FK_satinalma_uye1">
+      <End Role="ilaclar" EntitySet="ilaclar" />
+      <End Role="satinalma" EntitySet="satinalma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fuarkayit_fuar1" Association="sifaeczadposuModel.FK_fuarkayit_fuar1">
+      <End Role="uye" EntitySet="uye" />
+      <End Role="fuarkayit" EntitySet="fuarkayit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_satinalma_uye11" Association="sifaeczadposuModel.FK_satinalma_uye11">
+      <End Role="uye" EntitySet="uye" />
+      <End Role="satinalma" EntitySet="satinalma" />
+    </AssociationSet>
+    <EntitySet Name="duyurular" EntityType="sifaeczadposuModel.duyurular" />
+    <EntitySet Name="onerisikayet" EntityType="sifaeczadposuModel.onerisikayet" />
+    <EntitySet Name="Slider" EntityType="sifaeczadposuModel.Slider" />
+    <EntitySet Name="sysdiagrams" EntityType="sifaeczadposuModel.sysdiagrams" />
+  </EntityContainer>
+  <Association Name="FK_fuarkayit_fuar1">
+    <End Type="sifaeczadposuModel.uye" Role="uye" Multiplicity="1" />
+    <End Type="sifaeczadposuModel.fuarkayit" Role="fuarkayit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uye">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="fuarkayit">
+        <PropertyRef Name="FKuyeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_satinalma_uye11">
+    <End Type="sifaeczadposuModel.uye" Role="uye" Multiplicity="1" />
+    <End Type="sifaeczadposuModel.satinalma" Role="satinalma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uye">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="satinalma">
+        <PropertyRef Name="FKuyeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="duyurular">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="duyuruadi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="aciklama" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tarih" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="onerisikayet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adsoyad" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="mesaj" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SliderFoto" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="SliderText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BaslangicTarih" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BitisTarih" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+</Schema>

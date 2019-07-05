@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0a794183a0d84160a3436387ae3e9318" Name="Diagram1">
+        <EntityTypeShape EntityType="sifaeczadposuModel.fuar" Width="1.5" PointX="9" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="sifaeczadposuModel.fuarkayit" Width="1.5" PointX="7.125" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sifaeczadposuModel.ilaclar" Width="1.5" PointX="1.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sifaeczadposuModel.satinalma" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sifaeczadposuModel.uye" Width="1.5" PointX="5.125" PointY="0.625" IsExpanded="true" />
+        <AssociationConnector Association="sifaeczadposuModel.FK_fuarkayit_fuar" ManuallyRouted="false" />
+        <AssociationConnector Association="sifaeczadposuModel.FK_satinalma_uye1" ManuallyRouted="false" />
+        <AssociationConnector Association="sifaeczadposuModel.FK_fuarkayit_fuar1" />
+        <AssociationConnector Association="sifaeczadposuModel.FK_satinalma_uye11" />
+        <EntityTypeShape EntityType="sifaeczadposuModel.duyurular" Width="1.5" PointX="3.875" PointY="3.625" />
+        <EntityTypeShape EntityType="sifaeczadposuModel.onerisikayet" Width="1.5" PointX="8" PointY="3.5" />
+        <EntityTypeShape EntityType="sifaeczadposuModel.Slider" Width="1.5" PointX="6" PointY="3.5" />
+        <EntityTypeShape EntityType="sifaeczadposuModel.sysdiagrams" Width="1.5" PointX="1.875" PointY="3.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

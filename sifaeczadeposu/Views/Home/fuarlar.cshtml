@@ -1,0 +1,24 @@
+﻿@model IEnumerable<sifaeczadeposu.Models.fuar>
+
+@{
+    ViewBag.Title = "fuarlar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row text-center" style="margin-top:75px;">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-sm-6 hero-feature">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3>@Html.DisplayFor(modelItem => item.fuaradi)</h3>
+                    <p>Fuar Açıklaması:@Html.DisplayFor(modelItem => item.aciklama)</p>
+                    <p>Fuarın Tarihi:@Html.DisplayFor(modelItem => item.tarih)</p>
+                    <p>
+                        <a href="#" class="btn btn-primary">FUARA KAYDOL</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

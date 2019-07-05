@@ -1,0 +1,53 @@
+﻿@model List<sifaeczadeposu.Models.ilaclar>
+@{
+    ViewBag.Title = "İlaçlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+  <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>İlaçlar</h4>
+                    <a href="/Admin/IlacEkle" class="btn btn-success btn-sm tooltips pull-right" title="Yeni Ilac" style="margin-top:-33px;">Yeni İlaç</a>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th class="col-md-2">Fotoğraf</th>
+                                <th class="col-md-2">Başlık</th>
+                                <th class="col-md-4">İçerik</th>
+                                <th class="col-md-2">Fiyat</th>
+                                <th class="col-md-2">İndirim Oranı</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    @if (item.resim == null)
+                                    {
+                                        <td><img style='width:100%; height:auto; border:solid 1px #cccccc;' src="~/Content/images/resimyok.png" alt="" /></td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <img style='width:100%; height:auto; border:solid 1px #cccccc;' src="data:image/png;base64,@System.Convert.ToBase64String(item.resim)" />
+                                        </td>
+                                    }
+                                    <td>@item.ilacadi</td>
+                                    <td>@item.aciklama</td>
+                                    <td>@item.fiyat</td>
+                                    <td>@item.indirimorani</td>
+                                    <td><a href='/Admin/IlacDuzenle?IlacID=@item.ID' class='btn btn-xs btn-info tooltips' title='Düzenle'>Düzenle</a></td>
+                                    <td>@Html.ActionLink("Sil", "/İlacSil", new { IlacID = item.ID }, new { @class = "btn btn-xs btn-danger tooltips", onclick = "return confirm('Silmek İstediğinize Emin Misinizin ?');" })</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+  </div>
+        

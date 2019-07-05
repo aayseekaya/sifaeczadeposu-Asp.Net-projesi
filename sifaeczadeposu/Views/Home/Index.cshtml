@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Anasayfa";
+}
+
+<div class="jumbotron">
+    @*SLİDERR ALANI*@
+    <div class="ortala">
+        <div id="slider" class="carousel slide" data-interval="1000">
+           <div class="carousel-inner">
+               <div class="active item"><h2>Slide-1</h2><h3>1-Slider Alanı.</h3></div>
+                <div class="item"><h2>Slide-2</h2><h3>2-Slider Alanı.</h3></div>
+                <div class="item"><h2>Slide-3</h2><h3>3-Slider Alanı.</h3></div>
+                <div class="item"><h2>Slide-4</h2><h3>4-Slider Alanı.</h3></div>
+                <div class="item"><h2>Slide-5</h2><h3>5-Slider Alanı.</h3></div>
+            </div>
+            <ol class="carousel-indicators">
+                <li data-target="#slider" data-slide-to="0" class="active"></li>
+                <li data-target="#slider" data-slide-to="1"></li>
+                <li data-target="#slider" data-slide-to="2"></li>
+                <li data-target="#slider" data-slide-to="3"></li>
+                <li data-target="#slider" data-slide-to="4"></li>
+            </ol>
+            <a class="carousel-control left" href="#slider" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="carousel-control right" href="#slider" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+         </div>
+    </div> 
+    @*İLAÇLAR ALANI*@
+    <h3>İLAÇLAR</h3>
+    <div  id="border">
+       <div class="row text-center">
+            <div class="col-md-4 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/800x500" alt="">
+                    <div class="caption">
+                        <h3>Feature Label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <a href="#" class="btn btn-primary">DETAY</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/800x500" alt="">
+                    <div class="caption">
+                        <h3>Feature Label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <a href="#" class="btn btn-primary">DETAY</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/800x500" alt="">
+                    <div class="caption">
+                        <h3>Feature Label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <a href="#" class="btn btn-primary">DETAY</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+     @*duyurular*@ 
+    <div class="row">
+        
+        <div class="col-md-4">
+            <div class="list-group " id="border">
+                <a href="#" class="list-group-item list-group-item-action ">
+                    <h4 class="list-group-item-heading">DUYURULAR</h4>
+                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. </p>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+               <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus.</p>
+                </a>
+            </div>
+        </div>
+         <div class="col-md-4">
+            <div class="list-group " id="border">
+                <a href="#" class="list-group-item list-group-item-action ">
+                    <h4 class="list-group-item-heading">NÖBETÇİ ECZANELER</h4>
+                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. </p>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus.</p>
+                </a>
+            </div>
+        </div>
+         <div class="col-md-4">
+            <div class="list-group " id="border">
+                <a href="#" class="list-group-item list-group-item-action ">
+                    <h4 class="list-group-item-heading">ÖNERİ VE ŞİKAYET</h4>
+                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. </p>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
